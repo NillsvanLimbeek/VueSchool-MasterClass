@@ -37,7 +37,11 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     // indentation
     'indent': 'off',
-    "no-unused-vars": process.env.NODE_ENV === 'production' ? 2 : 1,
-    "no-console": process.env.NODE_ENV === 'production' ? 2 : 0
+    'no-unused-vars': process.env.NODE_ENV === 'production' ? 2 : 1,
+    'no-console': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'linebreak-style': 0,
+    'comma-dangle': 0,
+    'semi': 0,
+    'space-before-function-paren': 0
   }
 }

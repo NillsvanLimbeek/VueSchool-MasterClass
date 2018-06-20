@@ -1,47 +1,21 @@
-// https://eslint.org/docs/user-guide/configuring
-
 module.exports = {
-  root: true,
-  parser: 'babel-eslint',
-  parserOptions: {
-    sourceType: 'module'
-  },
-  env: {
-    browser: true,
-  },
-  extends: 'airbnb-base',
-  // required to lint *.vue files
-  plugins: [
-    'html'
-  ],
-  // check if imports actually resolve
-  'settings': {
-    'import/resolver': {
-      'webpack': {
-        'config': 'build/webpack.base.conf.js'
-      }
+    root: true,
+    env: {
+        node: true
+    },
+    'extends': [
+        'plugin:vue/essential',
+        '@vue/airbnb'
+    ],
+    rules: {
+        'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'indent': 'off',
+
+        // vue rules
+        'vue/require-v-for-key': 0
+    },
+    parserOptions: {
+        parser: 'babel-eslint'
     }
-  },
-  // add your custom rules here
-  'rules': {
-    // don't require .vue extension when importing
-    'import/extensions': ['error', 'always', {
-      'js': 'never',
-      'vue': 'never'
-    }],
-    // allow optionalDependencies
-    'import/no-extraneous-dependencies': ['error', {
-      'optionalDependencies': ['test/unit/index.js']
-    }],
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-    // indentation
-    'indent': 'off',
-    'no-unused-vars': process.env.NODE_ENV === 'production' ? 2 : 1,
-    'no-console': process.env.NODE_ENV === 'production' ? 2 : 0,
-    'linebreak-style': 0,
-    'comma-dangle': 0,
-    'semi': 0,
-    'space-before-function-paren': 0
-  }
 }

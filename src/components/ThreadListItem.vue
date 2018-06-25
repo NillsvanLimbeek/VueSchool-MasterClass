@@ -2,11 +2,11 @@
     <div class="thread">
         <div>
             <p>
-                <router-link :to="{ name: 'PageThreadShow', params: { id: thread['.key'] }}">{{ thread.title }}</router-link>
+                <router-link :to="{ name: 'ThreadShow', params: { id: thread['.key'] }}">{{ thread.title }}</router-link>
             </p>
             <p class="text-faded text-xsmall">
                 By
-                <a href="#">{{ user.name }}</a>, {{ thread.publishedAt }}.
+                <a href="#">{{ user.name }}</a>, <AppDate :timestamp="thread.publishedAt"/>.
             </p>
         </div>
 

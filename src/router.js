@@ -2,9 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // components
-import PageHome from '@/pages/PageHome.vue'
-import PageThreadShow from '@/pages/PageThreadShow.vue'
-import PageNotFound from '@/pages/PageNotFound.vue'
+import Home from '@/pages/PageHome.vue'
+import ThreadShow from '@/pages/PageThreadShow.vue'
+import NotFound from '@/pages/PageNotFound.vue'
+import Forum from '@/pages/PageForum.vue'
 
 Vue.use(Router)
 
@@ -13,18 +14,24 @@ export default new Router({
     routes: [{
             path: '/',
             name: 'Home',
-            component: PageHome,
+            component: Home,
+        },
+        {
+            path: '/forum/:id',
+            name: 'Forum',
+            component: Forum,
+            props: true
         },
         {
             path: '/thread/:id',
-            name: 'PageThreadShow',
-            component: PageThreadShow,
+            name: 'ThreadShow',
+            component: ThreadShow,
             props: true
         },
         {
             path: '*',
             name: 'PageNotFound',
-            component: PageNotFound
+            component: NotFound
         }
     ],
 })

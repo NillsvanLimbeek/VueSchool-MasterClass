@@ -1,6 +1,5 @@
 <template>
     <div class="forum-list">
-        <h2 class="list-title">Forums</h2>
         <ForumListItem
             v-for="forum in forums"
             :forum="forum"
@@ -24,6 +23,3 @@
         }
     }
 </script>
-
-<style>
-</style>

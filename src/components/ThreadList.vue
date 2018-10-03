@@ -1,25 +1,29 @@
 <template>
-    <div class="thread-list">
-        <h2 class="list-title">Threads</h2>
-        <ThreadListItem
-            v-for="thread in threads"
-            :key="thread['.key']"
-            :thread="thread"/>
-    </div>
+        <div class="thread-list">
+
+            <h2 class="list-title">Threads</h2>
+
+            <ThreadListItem
+                v-for="thread in threads"
+                :key="thread['.key']"
+                :thread="thread"
+            />
+
+        </div>
 </template>
 
-<script>
-    import ThreadListItem from './ThreadListItem.vue'
+<script lang="ts">
+    import { Vue, Component, Prop } from '@/vue-script';
 
-    export default {
+    import ThreadListItem from './ThreadListItem.vue';
+
+    @Component({
         components: {
-            ThreadListItem
+            ThreadListItem,
         },
-        props: {
-            threads: {
-                required: true,
-                type: Array
-            }
-        }
+    })
+
+    export default class ThreadList extends Vue {
+        @Prop({ required: true }) private threads!: object[];
     }
 </script>

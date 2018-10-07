@@ -7,7 +7,7 @@
                     </router-link>
                 </p>
                 <p class="text-faded text-xsmall">
-                    By <a href="#">{{ user.name }}</a>, {{ thread.publisedAt }}.
+                    By <a href="#">{{user.name}}</a>, <AppDate :timestamp="thread.publishedAt"/>
                 </p>
             </div>
 
@@ -31,9 +31,15 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
+    import AppDate from './AppDate.vue'
+
     import sourceData from '@/data.json';
 
-    @Component({})
+    @Component({
+        components: {
+            AppDate,
+        },
+    })
 
     export default class ThreadListItem extends Vue {
         @Prop({ required: true }) private thread!: object;

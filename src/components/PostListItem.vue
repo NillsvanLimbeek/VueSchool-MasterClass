@@ -18,7 +18,9 @@
         </div>
 
         <div class="post-date text-faded">
-            {{ post.publishedAt }}
+
+            <AppDate :timestamp="post.publishedAt"/>
+
         </div>
 
     </div>
@@ -27,9 +29,15 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
+    import AppDate from './AppDate.vue';
+
     import sourceData from '@/data.json';
 
-    @Component({})
+    @Component({
+        components: {
+            AppDate,
+        },
+    })
 
     export default class PostListItem extends Vue {
         @Prop({ required: true }) private post!: object;

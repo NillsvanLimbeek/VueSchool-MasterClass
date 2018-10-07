@@ -1,18 +1,24 @@
 import { RouteConfig } from 'vue-router';
 
-import HelloWorld from '@/components/HelloWorld.vue';
-import ThreadShow from '@/components/ThreadShow.vue';
+import Home from '@/pages/PageHome.vue';
+import ThreadShow from '@/pages/PageThreadShow.vue';
+import NotFound from '@/pages/PageNotFound.vue';
 
 export const routes: RouteConfig[] = [
     {
         path: '/',
-        name: 'Hello',
-        component: HelloWorld,
+        name: 'Home',
+        component: Home,
     },
     {
         path: '/thread/:id',
         name: 'ThreadShow',
         component: ThreadShow,
         props: true,
+    },
+    {
+        path: '*',
+        name: 'NotFound',
+        component: NotFound,
     },
 ];

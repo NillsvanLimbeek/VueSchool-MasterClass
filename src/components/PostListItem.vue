@@ -1,0 +1,49 @@
+<template>
+    <div class="post">
+
+        <div class="user-info">
+            <a href="#" class="user-name">{{ user.name }}</a>
+
+            <a href="#">
+                <img class="avatar-large" :src="user.avatar" alt="">
+            </a>
+
+            <p class="desktop-only text-small">{{ userPostCount }} posts</p>
+        </div>
+
+        <div class="post-content">
+            <div>
+                {{ post.text }}
+            </div>
+        </div>
+
+        <div class="post-date text-faded">
+            {{ post.publishedAt }}
+        </div>
+
+    </div>
+</template>
+
+<script lang="ts">
+    import { Vue, Component, Prop } from '@/vue-script';
+
+    import sourceData from '@/data.json';
+
+    @Component({})
+
+    export default class PostListItem extends Vue {
+        @Prop({ required: true }) private post!: object;
+
+        private get user() {
+            return sourceData.users[this.post.userId];
+        }
+
+        private get userPostCount() {
+            return Object.keys(this.user.posts).length;
+        }
+    }
+</script>
+
+<style>
+
+</style>

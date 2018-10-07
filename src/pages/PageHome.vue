@@ -9,8 +9,9 @@
     import { Component, Prop, Vue } from '@/vue-script';
 
     import sourceData from '@/data.json';
+    console.log(sourceData);
 
-    import ThreadList from './ThreadList.vue';
+    import ThreadList from '@/components/ThreadList.vue';
 
     @Component({
         components: {

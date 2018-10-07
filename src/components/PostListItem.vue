@@ -29,15 +29,9 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
-    import AppDate from './AppDate.vue';
-
     import sourceData from '@/data.json';
 
-    @Component({
-        components: {
-            AppDate,
-        },
-    })
+    @Component({})
 
     export default class PostListItem extends Vue {
         @Prop({ required: true }) private post!: object;

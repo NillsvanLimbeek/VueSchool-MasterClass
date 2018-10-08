@@ -10,10 +10,7 @@
 
             <PostList :posts="posts"/>
 
-            <PostEditor
-                @save-post="savePost"
-                :threadId="id"
-            />
+            <PostEditor :threadId="id" />
         </div>
 </template>
 
@@ -25,8 +22,6 @@
     import PostList from '@/components/PostList.vue';
     import PostEditor from '@/components/PostEditor.vue';
 
-    import sourceData from '@/data.json';
-
     @Component({
         components: {
             PostList,
@@ -37,23 +32,14 @@
     export default class ThreadShow extends Vue {
         @Prop({ required: true }) private id!: string;
 
-        private thread: IThread = sourceData.threads[this.id];
+        private thread: IThread =  this.$store.state.threads[this.id];
 
         private get posts() {
-            const posts: IPost[] = sourceData.posts;
+            const posts: IPost[] =  this.$store.state.posts;
             const postIds = Object.values(this.thread.posts);
 
             return Object.values(posts)
                 .filter((post) => postIds.includes(post['.key']));
-        }
-
-        private savePost(newPost: object) {
-            const post = newPost.post;
-            const postId = newPost.post['.key'];
-
-            this.$set(sourceData.posts, postId, post);
-            this.$set(this.thread.posts, postId, postId);
-            this.$set(sourceData.users[post.userId].posts, postId, postId);
         }
     }
 </script>

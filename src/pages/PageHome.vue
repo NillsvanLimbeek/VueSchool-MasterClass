@@ -10,9 +10,6 @@
 
     import { IForum, IPost, IUser, ICategory } from '@/types/index';
 
-    import sourceData from '@/data.json';
-    console.log(sourceData);
-
     import CategoryList from '@/components/CategoryList.vue';
 
     @Component({
@@ -22,7 +19,9 @@
     })
 
     export default class PageHome extends Vue {
-        private categories: ICategory[] = Object.values(sourceData.categories);
+        private get categories() {
+            return Object.values(this.$store.state.categories);
+        }
     }
 </script>
 

@@ -20,6 +20,8 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
+    import { IPost } from '@/types';
+
     @Component({})
 
     export default class PostEditor extends Vue {
@@ -30,17 +32,18 @@
         private addPost() {
             const postId = `GreatPost${Math.random()}`;
 
-            const post = {
+            const post: IPost = {
                 '.key': postId,
+                edited: {},
                 text: this.newPostText,
                 publishedAt: Math.floor(Date.now() / 1000),
                 threadId: this.threadId,
                 userId: '7uVPJS9GHoftN58Z2MXCYDqmNAh2',
             };
+            this.newPostText = '';
 
             this.$emit('save-post', { post });
-
-            this.newPostText = '';
+            this.$store.dispatch('createPost', post);
         }
     }
 </script>

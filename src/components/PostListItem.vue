@@ -31,15 +31,13 @@
 
     import { IPost } from '@/types/post';
 
-    import sourceData from '@/data.json';
-
     @Component({})
 
     export default class PostListItem extends Vue {
         @Prop({ required: true }) private post!: IPost;
 
         private get user() {
-            return sourceData.users[this.post.userId];
+            return  this.$store.state.users[this.post.userId];
         }
 
         private get userPostCount() {

@@ -21,8 +21,6 @@
 
     import { IThread } from '@/types/thread';
 
-    import sourceData from '@/data.json';
-
     import ThreadList from '@/components/ThreadList.vue';
 
     @Component({
@@ -35,11 +33,11 @@
         @Prop({ required: true }) private id!: string;
 
         private get forum() {
-            return sourceData.forums[this.id];
+            return  this.$store.state.forums[this.id];
         }
 
         private get threads() {
-            const threads: IThread = sourceData.threads;
+            const threads: IThread =  this.$store.state.threads;
 
             return Object.values(threads)
                 .filter((thread: IThread) => thread.forumId === this.id);

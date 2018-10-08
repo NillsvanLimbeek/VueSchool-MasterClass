@@ -8,8 +8,6 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
-    import sourceData from '@/data.json';
-
     import CategoryListItem from '@/components/CategoryListItem.vue'
 
     @Component({
@@ -22,7 +20,7 @@
         @Prop({ required: true }) private id!: string;
 
         private get category() {
-            return sourceData.categories[this.id];
+            return  this.$store.state.categories[this.id];
         }
     }
 </script>

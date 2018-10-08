@@ -33,8 +33,6 @@
 
     import { IThread } from '@/types/thread';
 
-    import sourceData from '@/data.json';
-
     @Component({})
 
     export default class ThreadListItem extends Vue {
@@ -45,7 +43,7 @@
         }
 
         private get user() {
-            return sourceData.users[this.thread.userId];
+            return  this.$store.state.users[this.thread.userId];
         }
     }
 </script>

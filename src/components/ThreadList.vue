@@ -15,6 +15,8 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
+    import { IThread } from '@/types/thread';
+
     import ThreadListItem from './ThreadListItem.vue';
 
     @Component({
@@ -24,6 +26,6 @@
     })
 
     export default class ThreadList extends Vue {
-        @Prop({ required: true }) private threads!: object[];
+        @Prop({ required: true }) private threads!: IThread[];
     }
 </script>

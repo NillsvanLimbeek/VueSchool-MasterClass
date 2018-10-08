@@ -31,11 +31,11 @@
             const postId = `GreatPost${Math.random()}`;
 
             const post = {
+                '.key': postId,
                 text: this.newPostText,
                 publishedAt: Math.floor(Date.now() / 1000),
                 threadId: this.threadId,
                 userId: '7uVPJS9GHoftN58Z2MXCYDqmNAh2',
-                '.key': postId,
             };
 
             this.$emit('save-post', { post });

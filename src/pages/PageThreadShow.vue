@@ -20,6 +20,8 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
+    import { IThread, IPost } from '@/types/index';
+
     import PostList from '@/components/PostList.vue';
     import PostEditor from '@/components/PostEditor.vue';
 
@@ -35,12 +37,13 @@
     export default class ThreadShow extends Vue {
         @Prop({ required: true }) private id!: string;
 
-        private thread: object = sourceData.threads[this.id];
+        private thread: IThread = sourceData.threads[this.id];
 
         private get posts() {
+            const posts: IPost[] = sourceData.posts;
             const postIds = Object.values(this.thread.posts);
 
-            return Object.values(sourceData.posts)
+            return Object.values(posts)
                 .filter((post) => postIds.includes(post['.key']));
         }
 

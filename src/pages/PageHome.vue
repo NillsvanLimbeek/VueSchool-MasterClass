@@ -1,28 +1,28 @@
 <template>
     <div class="col-full">
         <h2>Welcome to the Forum!</h2>
-        <ThreadList :threads="threads" />
+        <CategoryList :categories="categories" />
     </div>
 </template>
 
 <script lang="ts">
     import { Component, Prop, Vue } from '@/vue-script';
 
+    import { IForum, IPost, IUser, ICategory } from '@/types/index';
+
     import sourceData from '@/data.json';
     console.log(sourceData);
 
-    import ThreadList from '@/components/ThreadList.vue';
+    import CategoryList from '@/components/CategoryList.vue';
 
     @Component({
         components: {
-            ThreadList,
+            CategoryList,
         },
     })
 
-    export default class HelloWorld extends Vue {
-        private threads = Object.values(sourceData.threads);
-        private posts = sourceData.posts;
-        private users = sourceData.users;
+    export default class PageHome extends Vue {
+        private categories: ICategory[] = Object.values(sourceData.categories);
     }
 </script>
 

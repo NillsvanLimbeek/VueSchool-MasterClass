@@ -31,12 +31,14 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
+    import { IThread } from '@/types/thread';
+
     import sourceData from '@/data.json';
 
     @Component({})
 
     export default class ThreadListItem extends Vue {
-        @Prop({ required: true }) private thread!: object;
+        @Prop({ required: true }) private thread!: IThread;
 
         private get repliesCount() {
             return Object.keys(this.thread.posts).length - 1;

@@ -29,12 +29,14 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
+    import { IPost } from '@/types/post';
+
     import sourceData from '@/data.json';
 
     @Component({})
 
     export default class PostListItem extends Vue {
-        @Prop({ required: true }) private post!: object;
+        @Prop({ required: true }) private post!: IPost;
 
         private get user() {
             return sourceData.users[this.post.userId];

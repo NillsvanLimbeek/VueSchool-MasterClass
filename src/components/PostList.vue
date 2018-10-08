@@ -11,6 +11,8 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
+    import { IPost } from '@/types/post';
+
     import PostListItem from './PostListItem.vue';
 
     @Component({
@@ -20,7 +22,7 @@
     })
 
     export default class PostList extends Vue {
-        @Prop({ required: true }) private posts!: object[];
+        @Prop({ required: true }) private posts!: IPost[];
     }
 </script>
 

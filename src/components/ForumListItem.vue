@@ -24,6 +24,7 @@
 
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
+    import { countObjectProperties } from '@/utils';
 
     import { IForum } from '@/types';
 
@@ -33,7 +34,7 @@
         @Prop({ required: true }) private forum!: IForum;
 
         private get forumCount() {
-            return this.forum.threads ? Object.values(this.forum.threads).length : 0;
+            return countObjectProperties(this.forum.threads);
         }
     }
 </script>

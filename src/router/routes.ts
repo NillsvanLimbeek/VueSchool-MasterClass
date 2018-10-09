@@ -4,6 +4,7 @@ import Home from '@/pages/PageHome.vue';
 import Forum from '@/pages/PageForum.vue';
 import ThreadShow from '@/pages/PageThreadShow.vue';
 import Category from '@/pages/PageCategory.vue';
+import Profile from '@/pages/PageProfile.vue';
 import NotFound from '@/pages/PageNotFound.vue';
 
 export const routes: RouteConfig[] = [
@@ -28,6 +29,12 @@ export const routes: RouteConfig[] = [
         path: '/thread/:id',
         name: 'ThreadShow',
         component: ThreadShow,
+        props: true,
+    },
+    {
+        path: '/me',
+        name: 'Profile',
+        component: Profile,
         props: true,
     },
     {

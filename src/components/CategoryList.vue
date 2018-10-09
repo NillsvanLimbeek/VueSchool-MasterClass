@@ -22,7 +22,7 @@
     })
 
     export default class CategoryList extends Vue {
-        @Prop({ required: true }) private categories! : ICategory[];
+        @Prop({ required: true }) private categories!: ICategory[];
     }
 </script>
 

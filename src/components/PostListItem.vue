@@ -28,6 +28,7 @@
 
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
+    import { countObjectProperties } from '@/utils';
 
     import { IPost } from '@/types/post';
 
@@ -41,7 +42,7 @@
         }
 
         private get userPostCount() {
-            return Object.keys(this.user.posts).length;
+            return countObjectProperties(this.user.posts);
         }
     }
 </script>

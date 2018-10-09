@@ -21,13 +21,13 @@
         <ul>
 
             <li class="navbar-user">
-                <a href="#">
-                    <img class="avatar-small" src="https://pbs.twimg.com/profile_images/881260299420041217/GMVGlDea_400x400.jpg" alt="">
+                <router-link :to="{ name: 'Profile' }">
+                    <img class="avatar-small" :src="user.avatar" alt="">
                     <span>
-                        Alex Kyriakidis
-                        <img class="icon-profile" src="assets/img/svg/arrow-profile.svg" alt="">
+                        {{ user.name }}
+                        <img class="icon-profile" src="../assets/arrow-profile.svg" alt="">
                     </span>
-                </a>
+                </router-link>
 
                 <!-- dropdown menu -->
                 <!-- add class "active-drop" to show the dropdown -->
@@ -67,12 +67,14 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component } from '@/vue-script';
+    import { Vue, Component, Getter } from '@/vue-script';
+
+    import { IUser } from '@/types';
 
     @Component({})
 
     export default class TheNavbar extends Vue {
-        
+        @Getter('authUser') private user!: IUser;
     }
 </script>
 

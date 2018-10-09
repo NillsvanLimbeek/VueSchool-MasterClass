@@ -8,7 +8,7 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
-    import CategoryListItem from '@/components/CategoryListItem.vue'
+    import CategoryListItem from '@/components/CategoryListItem.vue';
 
     @Component({
         components: {

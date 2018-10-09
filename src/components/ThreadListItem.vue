@@ -30,6 +30,7 @@
 
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
+    import { countObjectProperties } from '@/utils';
 
     import { IThread } from '@/types/thread';
 
@@ -39,7 +40,7 @@
         @Prop({ required: true }) private thread!: IThread;
 
         private get repliesCount() {
-            return Object.keys(this.thread.posts).length - 1;
+            return countObjectProperties(this.thread.posts) - 1;
         }
 
         private get user() {

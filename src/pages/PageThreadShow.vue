@@ -32,7 +32,9 @@
     export default class ThreadShow extends Vue {
         @Prop({ required: true }) private id!: string;
 
-        private thread: IThread =  this.$store.state.threads[this.id];
+        private get thread() {
+            return this.$store.state.threads[this.id];
+        }
 
         private get posts() {
             const posts: IPost[] =  this.$store.state.posts;

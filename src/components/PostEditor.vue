@@ -18,19 +18,22 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component, Prop } from '@/vue-script';
+    import { Vue, Component, Prop, Getter } from '@/vue-script';
 
-    import { IPost } from '@/types';
+    import { IPost, IUser } from '@/types';
 
     @Component({})
 
     export default class PostEditor extends Vue {
         @Prop({ required: true }) private threadId!: string;
 
+        @Getter('authUser') private userId!: string;
+
         private newPostText = '';
 
         private addPost() {
             const postId = `GreatPost${Math.random()}`;
+
 
             const post: IPost = {
                 '.key': postId,
@@ -38,7 +41,7 @@
                 text: this.newPostText,
                 publishedAt: Math.floor(Date.now() / 1000),
                 threadId: this.threadId,
-                userId: '7uVPJS9GHoftN58Z2MXCYDqmNAh2',
+                userId: this.userId,
             };
             this.newPostText = '';
 
